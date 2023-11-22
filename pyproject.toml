@@ -23,7 +23,7 @@ dev-dependencies = [
 ]
 
 [tool.rye.scripts]
-start = { cmd = "python manage.py runserver" }
+dev = { cmd = "python manage.py runserver" }
 format = { cmd = "ruff check --fix src" }
 lint = { cmd = "ruff check src" }
 typecheck = { cmd = "mypy src" }
