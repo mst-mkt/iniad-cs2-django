@@ -24,9 +24,9 @@ dev-dependencies = [
 
 [tool.rye.scripts]
 dev = { cmd = "python manage.py runserver" }
-format = { cmd = "ruff check --fix src" }
-lint = { cmd = "ruff check src" }
-typecheck = { cmd = "mypy src" }
+format = { cmd = "ruff check --fix ./blog" }
+lint = { cmd = "ruff check ./blog" }
+typecheck = { cmd = "mypy ./blog" }
 
 
 [tool.hatch.metadata]
