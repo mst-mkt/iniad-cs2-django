@@ -1,7 +1,7 @@
 [project]
 name = "iniad-cs2-django"
 version = "0.1.0"
-description = "Add your description here"
+description = "Computer-Science-II Lecture at INIAD with Django"
 authors = [
     { name = "mst-mkt", email = "s1f102303057@iniad.org" }
 ]
@@ -9,7 +9,7 @@ dependencies = [
     "django>=4.2.7",
 ]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.12"
 
 [build-system]
 requires = ["hatchling"]
