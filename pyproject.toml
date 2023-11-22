@@ -24,3 +24,23 @@ dev-dependencies = [
 
 [tool.hatch.metadata]
 allow-direct-references = true
+
+[tool.ruff]
+target-version = "py312"
+select = ["ALL"]
+fixable = ["ALL"]
+exclude = [
+    ".git",
+    ".venv",
+    ".mypy_cache",
+    ".ruff_cache",
+]
+unfixable = ["F401", "F841"]
+line-length = 100
+indent-width = 4
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unreachable = true
+disallow-any-unimported = true
