@@ -9,8 +9,12 @@
 -e file:.
 asgiref==3.7.2
 django==4.2.7
+django-stubs==4.2.6
+django-stubs-ext==4.2.5
 mypy==1.7.0
 mypy-extensions==1.0.0
 ruff==0.1.6
 sqlparse==0.4.4
+types-pytz==2023.3.1.1
+types-pyyaml==6.0.12.12
 typing-extensions==4.8.0
