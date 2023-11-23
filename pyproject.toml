@@ -48,7 +48,7 @@ target-version = "py312"
 unfixable = ["F401", "F841", "D100", "D101"]
 
 [tool.mypy]
-disallow-any-unimported = true
+disallow_any_unimported = true
 python_version = "3.12"
 strict = true
 warn_unreachable = true
