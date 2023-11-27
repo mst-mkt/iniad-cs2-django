@@ -1,3 +1,4 @@
+import random as r
 from datetime import datetime
 
 from django.http import (
@@ -25,6 +26,13 @@ def index(request: HttpRequest) -> HttpResponse:
 
 
 def hello(request: HttpRequest) -> HttpResponse:
+    fortune = r.randint(0, 2)
+    fortune_message = [
+        "Great Fortune!",
+        "Small Fortune",
+        "Bad Fortune...",
+    ][fortune]
+
     data = {
         "name": "Alice",
         "weather": "CLOUDY",
@@ -33,9 +41,10 @@ def hello(request: HttpRequest) -> HttpResponse:
             "Humidity: 40%",
             "Wind: 5m/s",
         ],
-        "is_great_fortune": True,
-        "fortune": "Great Fortune!",
+        "is_great_fortune": fortune == 0,
+        "fortune": fortune_message,
     }
+
     return render(request, "blog/hello.html", data)
 
 
