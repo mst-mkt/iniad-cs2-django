@@ -17,9 +17,9 @@ requires = ["hatchling"]
 
 [tool.rye]
 dev-dependencies = [
-    "ruff>=0.1.6",
-    "mypy>=1.7.0",
-    "django-stubs>=4.2.6",
+  "ruff>=0.1.6",
+  "mypy>=1.7.0",
+  "django-stubs>=4.2.6",
 ]
 managed = true
 
@@ -41,12 +41,12 @@ exclude = [
   "__init__.py",
 ]
 fixable = ["ALL"]
-ignore = ["F401", "F841", "D100", "D101"]
+ignore = ["F401", "F841", "D"]
 indent-width = 4
 line-length = 100
 select = ["ALL"]
 target-version = "py312"
-unfixable = ["F401", "F841", "D100", "D101"]
+unfixable = ["F401", "F841", "D"]
 
 [tool.mypy]
 disallow_any_unimported = true
