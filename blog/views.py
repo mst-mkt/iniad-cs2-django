@@ -1,13 +1,27 @@
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from datetime import datetime
+
+from django.http import (
+    HttpRequest,
+    HttpResponse,
+    HttpResponsePermanentRedirect,
+    HttpResponseRedirect,
+)
+from django.shortcuts import redirect, render
+from django.utils import timezone
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    return render(request, "blog/index.html")
-
-
-def update(_: HttpRequest, article_id: int) -> HttpResponse:
-    return HttpResponse(f"article_id: {article_id}")
+    context: dict[str, list[dict[str, int | str | datetime]]] = {
+        "articles": [
+            {
+                "id": 1,
+                "title": "Post 01",
+                "body": "test post.\nLorem ipsum dolor sit amet, \nconsectetur adipiscing elit,\n sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n",
+                "posted_at": timezone.now(),
+            },
+        ],
+    }
+    return render(request, "blog/index.html", context)
 
 
 def hello(request: HttpRequest) -> HttpResponse:
@@ -29,3 +43,19 @@ def redirect_test(request: HttpRequest) -> HttpResponseRedirect | HttpResponsePe
     return redirect(hello)
 
 
+def detail(request: HttpRequest, article_id: int) -> HttpResponse:
+    content = {
+        "article_id": article_id,
+    }
+    return render(request, "blog/tbd.html", content)
+
+
+def update(request: HttpRequest, article_id: int) -> HttpResponse:
+    content = {
+        "article_id": article_id,
+    }
+    return render(request, "blog/tbd.html", content)
+
+
+def delete() -> HttpResponseRedirect | HttpResponsePermanentRedirect:
+    return redirect(index)
