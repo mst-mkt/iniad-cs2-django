@@ -6,7 +6,7 @@ def index(request: HttpRequest) -> HttpResponse:
     return render(request, "blog/index.html")
 
 
-def update(request: HttpRequest, article_id: int) -> HttpResponse:
+def update(_: HttpRequest, article_id: int) -> HttpResponse:
     return HttpResponse(f"article_id: {article_id}")
 
 
