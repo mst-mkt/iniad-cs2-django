@@ -8,3 +8,12 @@ def index(request: HttpRequest) -> HttpResponse:
 
 def update(request: HttpRequest, article_id: int) -> HttpResponse:
     return HttpResponse(f"article_id: {article_id}")
+
+
+def hello(request: HttpRequest) -> HttpResponse:
+    data = {
+        "name": "Alice",
+        "weather": "CLOUDY",
+        "fortune": "Great Fortune!",
+    }
+    return render(request, "blog/hello.html", data)
