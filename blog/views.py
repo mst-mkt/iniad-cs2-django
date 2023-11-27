@@ -23,3 +23,9 @@ def hello(request: HttpRequest) -> HttpResponse:
         "fortune": "Great Fortune!",
     }
     return render(request, "blog/hello.html", data)
+
+
+def redirect_test(request: HttpRequest) -> HttpResponseRedirect | HttpResponsePermanentRedirect:
+    return redirect(hello)
+
+

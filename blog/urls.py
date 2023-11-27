@@ -6,4 +6,5 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("<int:article_id>/update", views.update, name="update"),
     path("hello", views.hello, name="hello"),
+    path("redirect", views.redirect_test, name="redirect_test"),
 ]
