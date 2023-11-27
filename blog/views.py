@@ -14,6 +14,12 @@ def hello(request: HttpRequest) -> HttpResponse:
     data = {
         "name": "Alice",
         "weather": "CLOUDY",
+        "weather_details": [
+            "Temperature: 23℃",
+            "Humidity: 40%",
+            "Wind: 5m/s",
+        ],
+        "is_great_fortune": True,
         "fortune": "Great Fortune!",
     }
     return render(request, "blog/hello.html", data)
