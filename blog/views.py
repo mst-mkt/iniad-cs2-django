@@ -1,5 +1,5 @@
-import datetime
 import random as r
+from typing import TYPE_CHECKING
 
 from django.http import (
     HttpRequest,
@@ -9,6 +9,9 @@ from django.http import (
 )
 from django.shortcuts import redirect, render
 from django.utils import timezone
+
+if TYPE_CHECKING:
+    import datetime
 
 
 def index(request: HttpRequest) -> HttpResponse:
