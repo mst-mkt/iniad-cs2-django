@@ -1,3 +1,4 @@
+import datetime
 import random as r
 
 from django.http import (
@@ -11,7 +12,7 @@ from django.utils import timezone
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    context: dict[str, list[dict[str, int | str | timezone.datetime]]] = {
+    context: dict[str, list[dict[str, int | str | datetime.datetime]]] = {
         "articles": [
             {
                 "id": 1,
