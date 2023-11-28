@@ -55,6 +55,7 @@ unfixable = ["F401", "F841", "D"]
 
 [tool.mypy]
 disallow_any_unimported = true
+plugins = ["mypy_django_plugin.main"]
 python_version = "3.12"
 strict = true
 warn_unreachable = true
