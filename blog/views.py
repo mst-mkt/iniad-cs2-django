@@ -66,10 +66,15 @@ def detail(request: HttpRequest, article_id: int) -> HttpResponse:
 
 
 def update(request: HttpRequest, article_id: int) -> HttpResponse:
+    try:
+        article = Article.objects.get(pk=article_id)
+    except Article.DoesNotExist:
+        msg = "Article does not exist"
+        raise Http404(msg) from None
     content = {
-        "article_id": article_id,
+        "article": article,
     }
-    return render(request, "blog/tbd.html", content)
+    return render(request, "blog/edit.html", content)
 
 
 def delete() -> HttpResponseRedirect | HttpResponsePermanentRedirect:
