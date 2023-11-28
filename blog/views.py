@@ -1,5 +1,4 @@
 import random as r
-from datetime import datetime
 
 from django.http import (
     HttpRequest,
@@ -12,12 +11,17 @@ from django.utils import timezone
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    context: dict[str, list[dict[str, int | str | datetime]]] = {
+    context: dict[str, list[dict[str, int | str | timezone.datetime]]] = {
         "articles": [
             {
                 "id": 1,
                 "title": "Post 01",
-                "body": "test post.\nLorem ipsum dolor sit amet, \nconsectetur adipiscing elit,\n sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n",
+                "body": (
+                    "test post.\n"
+                    "Lorem ipsum dolor sit amet, \n"
+                    "consectetur adipiscing elit, \n"
+                    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n"
+                ),
                 "posted_at": timezone.now(),
             },
         ],
@@ -48,7 +52,7 @@ def hello(request: HttpRequest) -> HttpResponse:
     return render(request, "blog/hello.html", data)
 
 
-def redirect_test(request: HttpRequest) -> HttpResponseRedirect | HttpResponsePermanentRedirect:
+def redirect_test() -> HttpResponseRedirect | HttpResponsePermanentRedirect:
     return redirect(hello)
 
 
