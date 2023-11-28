@@ -32,6 +32,8 @@ format = {chain = ["format:py", "format:html"]}
 lint = {chain = ["lint:py", "lint:html"]}
 "lint:html" = {cmd = "djlint ./blog/templates --lint"}
 "lint:py" = {cmd = "ruff check ./blog"}
+migrate = {cmd = "python manage.py migrate"}
+migration = {cmd = "python manage.py makemigrations"}
 typecheck = {cmd = "mypy ./blog"}
 
 [tool.hatch.metadata]
