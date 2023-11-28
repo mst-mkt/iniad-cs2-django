@@ -3,7 +3,7 @@ from django.utils import timezone
 
 
 class Article(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)  # noqa: A003
     title = models.CharField(max_length=200)
     body = models.TextField()
     posted_at = models.DateTimeField(default=timezone.now)

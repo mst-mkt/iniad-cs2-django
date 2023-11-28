@@ -57,7 +57,8 @@ def detail(request: HttpRequest, article_id: int) -> HttpResponse:
     try:
         article = Article.objects.get(pk=article_id)
     except Article.DoesNotExist:
-        raise Http404("Article does not exist") from None
+        msg = "Article does not exist"
+        raise Http404(msg) from None
     content = {
         "article": article,
     }
