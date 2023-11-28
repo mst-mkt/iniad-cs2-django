@@ -23,10 +23,14 @@
       </div>
     </form>
     <br />
-    {% for article in articles %}
-      <a href="{% url 'detail' article.id %}">{{ article.title }}</a>
-      <small>[{{ article.posted_at }}]</small>
-      <div>{{ article.body | linebreaksbr }}</div>
-    {% endfor %}
+    {% if articles|length > 0 %}
+      {% for article in articles %}
+        <a href="{% url 'detail' article.id %}">{{ article.title }}</a>
+        <small>[{{ article.posted_at }}]</small>
+        <div>{{ article.body | linebreaksbr }}</div>
+      {% endfor %}
+    {% else %}
+      <p>No articles.</p>
+    {% endif %}
   </body>
 </html>
