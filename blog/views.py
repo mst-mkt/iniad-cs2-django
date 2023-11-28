@@ -8,27 +8,16 @@ from django.http import (
     HttpResponseRedirect,
 )
 from django.shortcuts import redirect, render
-from django.utils import timezone
+
+from blog.models import Article
 
 if TYPE_CHECKING:
-    import datetime
+    from django.db.models import BaseManager
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    context: dict[str, list[dict[str, int | str | datetime.datetime]]] = {
-        "articles": [
-            {
-                "id": 1,
-                "title": "Post 01",
-                "body": (
-                    "test post.\n"
-                    "Lorem ipsum dolor sit amet, \n"
-                    "consectetur adipiscing elit, \n"
-                    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n"
-                ),
-                "posted_at": timezone.now(),
-            },
-        ],
+    context: dict[str, BaseManager[Article]] = {
+        "articles": Article.objects.all(),
     }
     return render(request, "blog/index.html", context)
 
