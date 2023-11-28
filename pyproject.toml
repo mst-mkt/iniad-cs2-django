@@ -49,12 +49,12 @@ exclude = [
   "migrations",
 ]
 fixable = ["ALL"]
-ignore = ["F401", "F841", "D"]
+ignore = ["F401", "F841", "S311", "D"]
 indent-width = 4
 line-length = 100
 select = ["ALL"]
 target-version = "py312"
-unfixable = ["F401", "F841", "D"]
+unfixable = ["F401", "F841"]
 
 [tool.mypy]
 disallow_any_unimported = true
