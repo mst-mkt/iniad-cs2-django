@@ -1,5 +1,4 @@
 import random as r
-from typing import TYPE_CHECKING
 
 from django.http import (
     Http404,
@@ -12,12 +11,16 @@ from django.shortcuts import redirect, render
 
 from blog.models import Article
 
-if TYPE_CHECKING:
-    from django.db.models import BaseManager
-
 
 def index(request: HttpRequest) -> HttpResponse:
-    context: dict[str, BaseManager[Article]] = {
+    if request.method == "POST":
+        article = Article(
+            title=request.POST.get("title", ""),
+            body=request.POST.get("text", ""),
+        )
+        article.save()
+        return redirect(detail, article.id)
+    context = {
         "articles": Article.objects.all(),
     }
     return render(request, "blog/index.html", context)
