@@ -12,12 +12,7 @@
       {% csrf_token %}
       <div>
         <label for="titleInput">Title</label>
-        <input
-          type="text"
-          id="titleInput"
-          name="title"
-          placeholder="Input title"
-        />
+        <input type="text" id="titleInput" name="title" placeholder="Input title" />
       </div>
       <div>
         <label for="textInput">Text</label>
@@ -28,11 +23,10 @@
       </div>
     </form>
     <br />
-
     {% for article in articles %}
-    <a href="{% url 'detail' article.id %}"> {{ article.title }} </a>
-    <small>[{{ article.posted_at }}]</small>
-    <div>{{ article.body | linebreaksbr }}</div>
+      <a href="{% url 'detail' article.id %}">{{ article.title }}</a>
+      <small>[{{ article.posted_at }}]</small>
+      <div>{{ article.body | linebreaksbr }}</div>
     {% endfor %}
   </body>
 </html>
