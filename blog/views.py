@@ -2,6 +2,7 @@ import random as r
 from typing import TYPE_CHECKING
 
 from django.http import (
+    Http404,
     HttpRequest,
     HttpResponse,
     HttpResponsePermanentRedirect,
@@ -50,10 +51,14 @@ def redirect_test() -> HttpResponseRedirect | HttpResponsePermanentRedirect:
 
 
 def detail(request: HttpRequest, article_id: int) -> HttpResponse:
+    try:
+        article = Article.objects.get(pk=article_id)
+    except Article.DoesNotExist:
+        raise Http404("Article does not exist") from None
     content = {
-        "article_id": article_id,
+        "article": article,
     }
-    return render(request, "blog/tbd.html", content)
+    return render(request, "blog/detail.html", content)
 
 
 def update(request: HttpRequest, article_id: int) -> HttpResponse:
