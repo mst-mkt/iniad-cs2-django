@@ -71,6 +71,11 @@ def update(request: HttpRequest, article_id: int) -> HttpResponse:
     except Article.DoesNotExist:
         msg = "Article does not exist"
         raise Http404(msg) from None
+    if request.method == "POST":
+        article.title = request.POST.get("title", "")
+        article.body = request.POST.get("text", "")
+        article.save()
+        return redirect(detail, article_id)
     content = {
         "article": article,
     }
