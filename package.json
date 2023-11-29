@@ -7,6 +7,8 @@
     "lint": "npm run lint:css"
   },
   "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
     "prettier": "2",
     "prettier-plugin-django": "^0.5.9",
     "stylelint": "^15.11.0",
