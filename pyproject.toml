@@ -33,7 +33,7 @@ managed = true
 "lint" = {chain = ["lint:py", "lint:html", "lint:css"]}
 "lint:css" = {cmd = "pnpm run lint:css"}
 "lint:html" = {cmd = "djlint ./blog/templates --lint"}
-"lint:py" = {cmd = "ruff check ./blog"}
+"lint:py" = {cmd = "ruff check ./blog  --output-format=github"}
 "migrate" = {cmd = "python manage.py migrate"}
 "migration" = {cmd = "python manage.py makemigrations"}
 "typecheck" = {cmd = "mypy ./blog"}
