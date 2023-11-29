@@ -103,3 +103,15 @@ def delete(_: HttpRequest, article_id: int) -> HttpResponseRedirect | HttpRespon
 
     article.delete()
     return redirect(index)
+
+
+def like(_: HttpRequest, article_id: int) -> HttpResponseRedirect | HttpResponsePermanentRedirect:
+    try:
+        article = Article.objects.get(pk=article_id)
+        article.like += 1
+        article.save()
+    except Article.DoesNotExist:
+        msg = "Article does not exist"
+        raise Http404(msg) from None
+
+    return redirect(detail, article_id)
