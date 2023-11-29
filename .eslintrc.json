@@ -1,0 +1,22 @@
+{
+    "root": true,
+    "extends": ["eslint:recommended", "prettier"],
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "eqeqeq": "error",
+        "no-param-reassign": "error",
+        "object-shorthand": ["error", "always"],
+        "prefer-template": "error",
+        "complexity": ["error", 5],
+        "max-depth": ["error", 2],
+        "max-nested-callbacks": ["error", 3],
+        "max-lines": ["error", 200],
+        "no-unused-vars": "off"
+    }
+}
