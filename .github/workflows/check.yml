@@ -17,8 +17,18 @@ jobs:
                   crate: rye
                   git: https://github.com/mitsuhiko/rye
                   branch: main
-            - name: Install Dependencies
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 20
+            - name: Install Python Dependencies
               run: rye sync
+            - name: Install Node.js Dependencies
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+                  run_install: |
+                      - args: [--frozen-lockfile]
             - name: Lint
               run: rye run lint
             - name: TypeCheck
