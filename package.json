@@ -1,19 +1,21 @@
 {
-  "scripts": {
-    "format:html": "prettier --write \"./blog/templates/**/*.html\"",
-    "format:css": "prettier --write \"./blog/static/**/*.css\" && stylelint --fix \"./blog/static/**/*.css\"",
-    "format": "npm run format:html && npm run format:css",
-    "lint:css": "stylelint \"./blog/static/**/*.css\"",
-    "lint": "npm run lint:css"
-  },
-  "devDependencies": {
-    "eslint": "^8.54.0",
-    "eslint-config-prettier": "^9.0.0",
-    "prettier": "2",
-    "prettier-plugin-django": "^0.5.9",
-    "stylelint": "^15.11.0",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-recess-order": "^4.4.0",
-    "stylelint-config-standard": "^34.0.0"
-  }
+    "scripts": {
+        "format:html": "prettier --write \"./blog/templates/**/*.html\"",
+        "format:css": "prettier --write \"./blog/static/**/*.css\" && stylelint --fix \"./blog/static/**/*.css\"",
+        "format:js": "eslint --fix \"./blog/static/**/*.js\" && prettier --write \"./blog/static/**/*.js\"",
+        "format": "npm run format:html && npm run format:css && npm run format:js",
+        "lint:css": "stylelint \"./blog/static/**/*.css\"",
+        "lint:js": "eslint \"./blog/static/**/*.js\"",
+        "lint": "npm run lint:css && npm run lint:js"
+    },
+    "devDependencies": {
+        "eslint": "^8.54.0",
+        "eslint-config-prettier": "^9.0.0",
+        "prettier": "2",
+        "prettier-plugin-django": "^0.5.9",
+        "stylelint": "^15.11.0",
+        "stylelint-config-prettier": "^9.0.5",
+        "stylelint-config-recess-order": "^4.4.0",
+        "stylelint-config-standard": "^34.0.0"
+    }
 }
