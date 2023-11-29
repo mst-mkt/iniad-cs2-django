@@ -1,11 +1,15 @@
 {
-  "editor.formatOnSave": true,
-  "[django-html]": {
-    "editor.defaultFormatter": "monosans.djlint",
-    "editor.indentSize": 2
-  },
-  "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.indentSize": 4
-  }
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
+    },
+    "[django-html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.indentSize": 4
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.indentSize": 4
+    }
 }
