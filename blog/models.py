@@ -16,3 +16,12 @@ class Article(models.Model):
     def publish(self: "Article") -> None:
         self.published_at = timezone.now()
         self.save()
+
+
+class Comment(models.Model):
+    text = models.TextField()
+    posted_at = models.DateTimeField(default=timezone.now)
+    article = models.ForeignKey(Article, related_name="comments", on_delete=models.CASCADE)
+
+    def __str__(self: "Comment") -> str:
+        return self.text
