@@ -62,8 +62,17 @@ def detail(request: HttpRequest, article_id: int) -> HttpResponse:
     except Article.DoesNotExist:
         msg = "Article does not exist"
         raise Http404(msg) from None
+
+    if request.method == "POST":
+        comment = Comment(
+            article=article,
+            text=request.POST.get("text", ""),
+        )
+        comment.save()
+
     content = {
         "article": article,
+        "comments": article.comments.order_by("-posted_at"),
     }
     return render(request, "blog/detail.html", content)
 
