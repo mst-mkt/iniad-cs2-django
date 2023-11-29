@@ -29,10 +29,12 @@ managed = true
 "format" = {chain = ["format:py", "format:html", "format:css"]}
 "format:css" = {cmd = "pnpm run format:css"}
 "format:html" = {cmd = "pnpm run format:html"}
+"format:js" = {cmd = "pnpm run format:js"}
 "format:py" = {cmd = "ruff check --fix ./blog"}
 "lint" = {chain = ["lint:py", "lint:html", "lint:css"]}
 "lint:css" = {cmd = "pnpm run lint:css"}
 "lint:html" = {cmd = "djlint ./blog/templates --lint"}
+"lint:js" = {cmd = "pnpm run lint:js"}
 "lint:py" = {cmd = "ruff check ./blog  --output-format=github"}
 "migrate" = {cmd = "python manage.py migrate"}
 "migration" = {cmd = "python manage.py makemigrations"}
