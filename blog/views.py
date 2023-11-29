@@ -9,10 +9,12 @@ from django.http import (
 )
 from django.shortcuts import redirect, render
 
-from blog.models import Article
+from blog.models import Article, Comment
 
 
-def index(request: HttpRequest) -> HttpResponse:
+def index(
+    request: HttpRequest,
+) -> HttpResponse | HttpResponseRedirect | HttpResponsePermanentRedirect:
     if request.method == "POST":
         article = Article(
             title=request.POST.get("title", ""),
@@ -20,6 +22,7 @@ def index(request: HttpRequest) -> HttpResponse:
         )
         article.save()
         return redirect(detail, article.id)
+
     context = {
         "articles": Article.objects.all(),
     }
@@ -88,5 +91,6 @@ def delete(_: HttpRequest, article_id: int) -> HttpResponseRedirect | HttpRespon
     except Article.DoesNotExist:
         msg = "Article does not exist"
         raise Http404(msg) from None
+
     article.delete()
     return redirect(index)
