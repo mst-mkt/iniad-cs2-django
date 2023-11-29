@@ -23,8 +23,13 @@ def index(
         article.save()
         return redirect(detail, article.id)
 
+    if ("sort" in request.GET) and (request.GET.get("sort") == "like"):
+        articles = Article.objects.order_by("-like")
+    else:
+        articles = Article.objects.order_by("-posted_at")
+
     context = {
-        "articles": Article.objects.all(),
+        "articles": articles,
     }
     return render(request, "blog/index.html", context)
 
