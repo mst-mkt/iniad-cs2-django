@@ -26,6 +26,16 @@
                 <button type="submit">Submit</button>
             </div>
         </form>
+        {% if comments|length %}
+            {% for comment in comments %}
+                <div class="text">
+                    <small>[{{ comment.posted_at }}]</small>
+                    <div>{{ comment.text|linebreaksbr }}</div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No comments.</p>
+        {% endif %}
         <hr />
         <p>
             <a href="{% url 'index' %}">Top</a>
