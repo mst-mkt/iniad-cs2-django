@@ -6,6 +6,7 @@ from django.http import (
     HttpResponse,
     HttpResponsePermanentRedirect,
     HttpResponseRedirect,
+    JsonResponse,
 )
 from django.shortcuts import redirect, render
 
@@ -120,3 +121,19 @@ def like(_: HttpRequest, article_id: int) -> HttpResponseRedirect | HttpResponse
         raise Http404(msg) from None
 
     return redirect(detail, article_id)
+
+
+def api_like(_: HttpRequest, article_id: int) -> JsonResponse:
+    try:
+        article = Article.objects.get(pk=article_id)
+        article.like += 1
+        article.save()
+    except Article.DoesNotExist:
+        msg = "Article does not exist"
+        raise Http404(msg) from None
+
+    result = {
+        "id": article_id,
+        "like": article.like,
+    }
+    return JsonResponse(result)
