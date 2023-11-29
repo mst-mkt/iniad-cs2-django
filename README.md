@@ -15,7 +15,7 @@ $ rye sync
 $ pnpm i --frozen-lockfile
 ```
 
-## Devvelop
+## Develop
 
 ```sh
 $ rye run dev
