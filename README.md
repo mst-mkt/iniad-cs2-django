@@ -5,7 +5,7 @@ This is a Django project for INIAD's Introduction to Computer Science II class.
 ## Requirements
 
 -   Rye
--   Node.js (for lint / format for html, css)
+-   Node.js (for lint / format for html, css, js)
 -   pnpm
 
 ## Setup
